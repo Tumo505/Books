@@ -2,37 +2,42 @@ package com.tumo505.books;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 public class Book implements Parcelable {
     public String id;
     public String title;
     public String subTitle;
-    public String[] authors;
+    public String authors;
     public String publisher;
     public String publishedDate;
+    public String description;
 
     public Book (String id,
                  String title,
                  String subTitle,
                  String[] authors,
                  String publisher,
-                 String publishedDate) {
+                 String publishedDate,
+                 String description) {
 
         this.id = id;
         this.title = title;
         this.subTitle = subTitle;
-        this.authors = authors;
+        this.authors = TextUtils.join(", ", authors);
         this.publisher = publisher;
         this.publishedDate = publishedDate;
+        this.description = description;
     }
 
     protected Book(Parcel in) {
         id = in.readString();
         title = in.readString();
         subTitle = in.readString();
-        authors = in.createStringArray();
+        authors = in.readString();
         publisher = in.readString();
         publishedDate = in.readString();
+        description = in.readString();
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -53,12 +58,13 @@ public class Book implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(title);
-        dest.writeString(subTitle);
-        dest.writeStringArray(authors);
-        dest.writeString(publisher);
-        dest.writeString(publishedDate);
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(id);
+        parcel.writeString(title);
+        parcel.writeString(subTitle);
+        parcel.writeString(authors);
+        parcel.writeString(publisher);
+        parcel.writeString(publishedDate);
+        parcel.writeString(description);
     }
 }
