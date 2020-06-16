@@ -40,14 +40,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="70"
-                android:id="@+id/tvPublisher"
+                android:id="@+id/tvAuthors"
                 android:layout_gravity="start"
                 android:text="Publisher"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="30"
-                android:id="@+id/tvPublishedDate"
+                android:id="@+id/tvPublisher"
                 android:layout_gravity="end"
                 android:text="PublishedDate"
                 android:paddingEnd="@dimen/published_date_padding"
