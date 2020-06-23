@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:weightSum="100">
@@ -8,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_weight="15"
         android:layout_height="wrap_content"
-        android:src="@drawable/book_open"
+        app:srcCompat="@drawable/book_open"
         android:padding="8dp" />
 
     <LinearLayout
@@ -24,13 +25,13 @@
         android:textSize="@dimen/title_size"
         android:text="Title TextView"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvAuthors"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/authors_size"
-            android:text="Title TextView"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/tvAuthors"-->
+<!--            android:textColor="@color/colorPrimaryDark"-->
+<!--            android:textSize="@dimen/authors_size"-->
+<!--            android:text="Title TextView"/>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
