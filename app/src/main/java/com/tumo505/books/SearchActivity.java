@@ -2,6 +2,7 @@ package com.tumo505.books;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,19 @@ public class SearchActivity extends AppCompatActivity {
                 }
                 else {
                     URL queryURL = ApiUtil.buildUrl(title, author, publisher, isbn);
+                    //sharedPrefereces
+                    Context context = getApplicationContext();
+                    int position = SpUtil.getPreferenceInt(context, SpUtil.POSITION);
+                    if (position == 0 || position == 5) {
+                        position = 1;
+                    }
+                    else {
+                        position ++;
+                    }
+                    String key = SpUtil.QUERY + String.valueOf(position);
+                    String value = title + "," + author + "," + publisher + "," + isbn;
+                    SpUtil.setPreferenceString(context, key, value);
+                    SpUtil.setPreferenceInt(context, SpUtil.POSITION, position);
                     Intent intent = new Intent(getApplicationContext(), BookListActivity.class);
                     intent.putExtra("Query", queryURL);
                     startActivity(intent);
